@@ -12,11 +12,10 @@ projects.addTodo(todo1);
 projects.addTodo(todo2);
 projects.addTodo(todo3);
 
-const debug = (e) => {
-    console.log(projects);
-}
-const body = document.querySelector('body');
-const button = document.createElement('button');
-button.innerText = 'Debug';
-button.addEventListener('click', debug);
-body.appendChild(button);
+console.log(projects);
+
+projects.removeTodo(todo2);
+
+console.log(projects.contains(todo2));
+console.log(projects.getObject(todo1));
+console.log(projects);
