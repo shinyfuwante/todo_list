@@ -22,11 +22,11 @@ class projectList {
             for (let i = 0; i < this.length; i++) {
                 const item = this.list[i];
                 if (item.toString() == todoObject.toString()) {
-                    return item;
+                    return i;
                 }
             }
         }
-        console.log('Failed to retrieve object');
+        return -1;
     }
 
     addTodo(todoObject) {
