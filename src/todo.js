@@ -7,10 +7,6 @@ class todoItem {
         this.completed = completed;
     }
 
-    toString() {
-        return this.title;
-    }
-
     set title(title) {
         this._title = title;
     }

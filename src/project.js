@@ -34,13 +34,7 @@ class projectList {
     }
     
     removeTodo(todoObject) {
-        console.log(this.length);
-        for (let i = 0; i < (this.length); i++) {
-            const item = this.list[i];
-            if (item.toString() == todoObject.toString()) {
-                this.list.splice(i, 1);
-            }
-        }
+        this.list = this.list.filter(object => object != todoObject);
     }
 }
 
