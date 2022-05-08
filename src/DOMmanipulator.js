@@ -1,15 +1,16 @@
 import { todoItem } from "./todo";
 import { projectList } from "./project";
 
+const newToDoForm = document.querySelector('form.add-todo');
+const body = document.querySelector('body');
 
 const domManipulator = (() => {
     const addTodo = (e, currentProject) => {
         e.preventDefault();
     
-        const form = document.querySelector('form.add-todo');
-        let formValid = form.checkValidity();
+        let formValid = newToDoForm.checkValidity();
         if (!formValid) {
-            form.reportValidity(); 
+            newToDoForm.reportValidity(); 
             return;
         }
     
@@ -25,8 +26,46 @@ const domManipulator = (() => {
         console.log(currentProject);
     }
 
+    const openForm = (e) => {
+        newToDoForm.classList.toggle('hidden');
+    }
+
+    const renderToDos = (currentProject) => {
+        currentProject.list.forEach(todoObject => renderTodoItem(todoObject));
+    }
+
+    const renderTodoItem = (todoObject) => {
+        const todoItem = document.createElement('div');
+        todoItem.classList.add('todo-object');
+
+        const todoTitle = document.createElement('span');
+        todoTitle.innerText = todoObject.title;
+        todoItem.appendChild(todoTitle);
+
+        const todoDesc = document.createElement('span');
+        todoDesc.innerText = todoObject.description;
+        todoItem.appendChild(todoDesc);
+
+        const todoDueDate = document.createElement('span');
+        todoDueDate.innerText = todoObject.dueDate;
+        todoItem.appendChild(todoDueDate);
+
+        const todoPriority = document.createElement('span');
+        todoPriority.innerText = todoObject.priority;
+        todoItem.appendChild(todoPriority);
+
+        const todoCompleted = document.createElement('span');
+        todoCompleted.innerText = todoObject.completed;
+        todoItem.appendChild(todoCompleted);
+
+        body.appendChild(todoItem);
+
+    }
+
     return {
         addTodo,
+        openForm,
+        renderToDos,
     }
 })();
 
