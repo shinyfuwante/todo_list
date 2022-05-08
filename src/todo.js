@@ -1,8 +1,11 @@
+import { format } from 'date-fns';
+
 class todoItem { 
     constructor(title, description, dueDate, priority, completed = false) {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
+        if (this.dueDate == false) this.dueDate = format(new Date(), 'yyyy-MM-dd');
         this.priority = priority;
         this.completed = completed;
     }
