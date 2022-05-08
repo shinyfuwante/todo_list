@@ -8,13 +8,7 @@ class projectList {
     }
 
     contains(todoObject) {
-        for (let i = 0; i < this.length; i++) {
-            const item = this.list[i];
-            if (item.toString() == todoObject.toString()) {
-                return true;
-            }
-        }
-        return false;
+        return this.list.includes(todoObject);
     }
 
     getObject(todoObject) {
