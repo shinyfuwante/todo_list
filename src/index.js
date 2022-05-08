@@ -31,6 +31,8 @@ console.log(todo2);
 
 
 const buttonForm = document.querySelector('button#add-to-do');
-
-
 buttonForm.addEventListener('click', (e) => DM.addTodo(e, projects));
+const openformBtn = document.querySelector('button#open-form');
+openformBtn.addEventListener('click', (e) => DM.openForm(e));
+
+DM.renderToDos(projects);
