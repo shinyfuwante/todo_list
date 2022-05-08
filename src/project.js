@@ -7,10 +7,6 @@ class projectList {
         return this.list.length;
     }
 
-    get list() {
-        return this.list;
-    }
-
     contains(todoObject) {
         return this.list.includes(todoObject);
     }
