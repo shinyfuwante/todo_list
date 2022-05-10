@@ -5,9 +5,9 @@ import { domManipulator as DM } from './DOMmanipulator';
 
 const projects = new projectList();
 
-const todo1 = new todoItem("Chores", "vacuum and mop", "any", "high");
-const todo2 = new todoItem("Code", "Todo Project", "any", "high");
-const todo3 = new todoItem("Cook", "Chicken", "any", "high");
+const todo1 = new todoItem("Chores", "vacuum and mop", "", "high");
+const todo2 = new todoItem("Code", "Todo Project", "", "high");
+const todo3 = new todoItem("Cook", "Chicken", "", "high");
 
 projects.addTodo(todo1);
 projects.addTodo(todo2);

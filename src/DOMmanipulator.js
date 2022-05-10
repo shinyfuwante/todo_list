@@ -2,7 +2,7 @@ import { todoItem } from "./todo";
 import { projectList } from "./project";
 
 const newToDoForm = document.querySelector('form.add-todo');
-const body = document.querySelector('body');
+const todoContainer = document.querySelector('body');
 
 const domManipulator = (() => {
     const addTodo = (e, currentProject) => {
@@ -31,34 +31,45 @@ const domManipulator = (() => {
     }
 
     const renderToDos = (currentProject) => {
-        currentProject.list.forEach(todoObject => renderTodoItem(todoObject));
+        currentProject.list.forEach(todoObject => renderShortTodo(todoObject));
     }
 
-    const renderTodoItem = (todoObject) => {
+    const toggleCheckBox = (e, todoObject) => {
+        console.log('clicking checkbox');
+    }
+
+    const renderShortTodo = (todoObject) => {
         const todoItem = document.createElement('div');
         todoItem.classList.add('todo-object');
+
+        //create a checkbox here
+        const todoCheckbox = document.createElement('div');
+        todoCheckbox.classList.add('todo-completed');
+        todoCheckbox.addEventListener('click', e => toggleCheckBox(e, todoObject));
 
         const todoTitle = document.createElement('span');
         todoTitle.innerText = todoObject.title;
         todoItem.appendChild(todoTitle);
-
-        const todoDesc = document.createElement('span');
-        todoDesc.innerText = todoObject.description;
-        todoItem.appendChild(todoDesc);
+        
+        // const todoDesc = document.createElement('span');
+        // todoDesc.innerText = todoObject.description;
+        // todoItem.appendChild(todoDesc);
 
         const todoDueDate = document.createElement('span');
         todoDueDate.innerText = todoObject.dueDate;
         todoItem.appendChild(todoDueDate);
 
-        const todoPriority = document.createElement('span');
-        todoPriority.innerText = todoObject.priority;
-        todoItem.appendChild(todoPriority);
+        //create a button here to expand on details
 
-        const todoCompleted = document.createElement('span');
-        todoCompleted.innerText = todoObject.completed;
-        todoItem.appendChild(todoCompleted);
+        // const todoPriority = document.createElement('span');
+        // todoPriority.innerText = todoObject.priority;
+        // todoItem.appendChild(todoPriority);
 
-        body.appendChild(todoItem);
+        // const todoCompleted = document.createElement('span');
+        // todoCompleted.innerText = todoObject.completed;
+        // todoItem.appendChild(todoCompleted);
+
+        todoContainer.appendChild(todoItem);
 
     }
 
