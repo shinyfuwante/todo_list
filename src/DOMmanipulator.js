@@ -43,9 +43,10 @@ const domManipulator = (() => {
         todoItem.classList.add('todo-object');
 
         //create a checkbox here
-        const todoCheckbox = document.createElement('div');
+        const todoCheckbox = document.createElement('button');
         todoCheckbox.classList.add('todo-completed');
         todoCheckbox.addEventListener('click', e => toggleCheckBox(e, todoObject));
+        todoItem.appendChild(todoCheckbox);
 
         const todoTitle = document.createElement('span');
         todoTitle.innerText = todoObject.title;
